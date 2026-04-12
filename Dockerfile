@@ -29,7 +29,6 @@ RUN php artisan key:generate
 
 # Migraciones y seeders
 RUN php artisan migrate --force
-RUN php artisan db:seed --force
 
 EXPOSE 10000
 
