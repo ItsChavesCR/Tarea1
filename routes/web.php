@@ -30,7 +30,7 @@ Route::get('/test-data', function () {
     $author = Author::create([
         'name' => 'Gabriel García Márquez',
         'nationality' => 'Colombia',
-        'birth_date' => '1927-03-06'
+        'birth' => '1927-03-06'
     ]);
 
     $publisher = Publisher::create([
