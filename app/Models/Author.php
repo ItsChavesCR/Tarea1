@@ -9,7 +9,7 @@ class Author extends Model
     protected $fillable = [
         'name',
         'nationality',
-        'birthdate'
+        'birth'
     ];
 
     public function books() {
