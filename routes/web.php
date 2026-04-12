@@ -32,7 +32,8 @@ Route::get('/test-data', function () {
         ['name' => 'Gabriel García Márquez'],
         [
             'nationality' => 'Colombia',
-            'birth' => '1927-03-06'
+            'birth' => '1927-03-06',
+            'fields' => 'Literatura'
         ]
     );
 

@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Author extends Model
 {
     protected $fillable = [
-        'name',
-        'nationality',
-        'birth'
-    ];
+    'name',
+    'nationality',
+    'birth',
+    'fields'
+];
 
     public function books() {
         return $this->hasMany(Book::class);
