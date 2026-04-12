@@ -24,28 +24,39 @@ Route::get('/publishers', [PublisherController::class, 'index']);
 Route::get('/publishers/{id}', [PublisherController::class, 'show']);
 
 
-// 🚀 RUTA TEMPORAL PARA INSERTAR DATOS
+// 🚀 RUTA TEMPORAL PARA INSERTAR DATOS (SIN DUPLICADOS)
 Route::get('/test-data', function () {
 
-    $author = Author::create([
-        'name' => 'Gabriel García Márquez',
-        'nationality' => 'Colombia',
-        'birth' => '1927-03-06'
-    ]);
+    // Crear o buscar autor
+    $author = Author::firstOrCreate(
+        ['name' => 'Gabriel García Márquez'],
+        [
+            'nationality' => 'Colombia',
+            'birth' => '1927-03-06'
+        ]
+    );
 
-    $publisher = Publisher::create([
-        'name' => 'Editorial Sudamericana',
-        'country' => 'Argentina'
-    ]);
+    
 
-    Book::create([
-        'title' => 'Cien años de soledad',
-        'copyright' => '1967',
-        'edition' => 'Primera',
-        'pages' => 471,
-        'author_id' => $author->id,
-        'publisher_id' => $publisher->id
-    ]);
+    // Crear o buscar editorial
+    $publisher = Publisher::firstOrCreate(
+        ['name' => 'Editorial Sudamericana'],
+        [
+            'country' => 'Argentina'
+        ]
+    );
+
+    // Crear libro solo si no existe
+    Book::firstOrCreate(
+        ['title' => 'Cien años de soledad'],
+        [
+            'copyright' => '1967',
+            'edition' => 'Primera',
+            'pages' => 471,
+            'author_id' => $author->id,
+            'publisher_id' => $publisher->id
+        ]
+    );
 
     return "Datos insertados correctamente ✅";
 });
