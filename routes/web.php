@@ -44,7 +44,8 @@ Route::get('/test-data', function () {
         ['name' => 'Editorial Sudamericana'],
         [
             'country' => 'Argentina',
-            'founded' => '1939'
+            'founded' => '1939',
+            'genre' => 'Literatura'
         ]
     );
 
