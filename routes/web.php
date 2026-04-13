@@ -43,7 +43,8 @@ Route::get('/test-data', function () {
     $publisher = Publisher::firstOrCreate(
         ['name' => 'Editorial Sudamericana'],
         [
-            'country' => 'Argentina'
+            'country' => 'Argentina',
+            'founded' => '1939'
         ]
     );
 
